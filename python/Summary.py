@@ -31,6 +31,7 @@ class GetTarget:
                          self.accessKey + ":" +
                          sb.tmsSignature(headers,
                                          self.method,
+                                         None,
                                          self.path,
                                          self.secretKey)})
 

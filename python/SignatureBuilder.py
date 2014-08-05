@@ -1,11 +1,26 @@
 import hmac
 from hashlib import sha1
+from hashlib import md5
 import base64
 
 class SignatureBuilder:
-    def tmsSignature(self, headers, method, requestPath, secretKey):
+    def tmsSignature(self, headers, method, requestBody, requestPath, secretKey):
         contentType = ""
         hexDigest = "d41d8cd98f00b204e9800998ecf8427e"
+
+        if method == "GET" or method == "DELETE":
+            # Do nothing because the strings are already set correctly
+            pass
+        elif method == "POST" or method == "PUT":
+            contentType = "application/json";
+            hexDigest = md5(str(requestBody)
+                        .replace(' ', '')
+                        .replace('\'', '"')
+                        .lower()
+                        ).hexdigest().lower()
+        else:
+            print "ERROR: Invalid content type passed to Sig Builder"
+            exit()
 
         dateValue = headers['Date']
         toDigest = method + "\n" +\
