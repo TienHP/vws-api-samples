@@ -16,7 +16,7 @@ class SignatureBuilder:
             hexDigest = md5(str(requestBody)
                         .replace(' ', '')
                         .replace('\'', '"')
-                        .lower()
+                        .replace('\\n', '')
                         ).hexdigest().lower()
         else:
             print "ERROR: Invalid content type passed to Sig Builder"
