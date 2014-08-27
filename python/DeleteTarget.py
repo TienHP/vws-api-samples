@@ -80,7 +80,7 @@ class DeleteTarget(TargetStatusListener):
         if target_state.hasState:
 
             if target_state.m_activeFlag == False and\
-               target_state.m_status <> "processing":
+               (target_state.m_status).lower() == "success":
 
                     self.targetStatusPoller.stopPolling()
 
