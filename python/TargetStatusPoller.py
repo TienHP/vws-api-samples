@@ -54,7 +54,10 @@ class TargetStatusPoller:
         print "New poller task created..."
         try:
             targetState = TargetState.createFromJSON( self.getTarget() )
-            self.targetStatusListener.OnTargetStatusUpdate( targetState )
+            if targetState != None:
+                self.targetStatusListener.OnTargetStatusUpdate( targetState )
+            else:
+                print "Target state not reached"
         except Exception as e:
             print "Error creating poller task: " + str(e)
             self.timer.cancel()
