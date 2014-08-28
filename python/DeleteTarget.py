@@ -19,7 +19,7 @@ class DeleteTarget(TargetStatusListener):
     updateMethod = "PUT"
     deleteMethod = "DELETE"
 
-    pollingIntervalMinutes = 60
+    pollingIntervalMinutes = 1 * 60
     targetStatusPoller = None
 
     def deleteTarget(self):

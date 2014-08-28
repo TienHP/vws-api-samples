@@ -36,7 +36,7 @@ class TargetStatusPoller:
 
     def startPolling(self):
         print "Initiate polling for target: " +  self.targetId
-        self.timer = Timer(1, self.pollerTask)
+        self.timer = Timer(self.intervalInMinutes, self.pollerTask)
         self.timer.start()
 
     def stopPolling(self):
@@ -47,7 +47,7 @@ class TargetStatusPoller:
         if self.continuePolling:
             print ".. polling again .. "
 
-            self.timer = Timer(1, self.pollerTask)
+            self.timer = Timer(self.intervalInMinutes, self.pollerTask)
             self.timer.start()
 
     def pollerTask(self):

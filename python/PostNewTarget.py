@@ -20,7 +20,7 @@ class PostNewTarget(TargetStatusListener):
     path = "/targets"
     method = "POST"
 
-    pollingIntervalMinutes = 60
+    pollingIntervalMinutes = 1 * 60
     targetStatusPoller = None
 
     def postTarget(self):
