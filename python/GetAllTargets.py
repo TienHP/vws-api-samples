@@ -4,8 +4,8 @@ from SignatureBuilder import SignatureBuilder
 
 class GetAllTargets:
 
-    accessKey = "[ server access key ]"
-    secretKey = "[ server secret key ]"
+    accessKey = "[ server access key ]";
+    secretKey = "[ server secret key ]";
 
     headers = {}
 
@@ -35,6 +35,7 @@ class GetAllTargets:
                                          self.path,
                                          self.secretKey)})
 
-g = GetAllTargets()
-g.getTargets()
+if __name__ == "__main__":
+    g = GetAllTargets()
+    g.getTargets()
 

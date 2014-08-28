@@ -13,6 +13,7 @@ class SignatureBuilder:
             pass
         elif method == "POST" or method == "PUT":
             contentType = "application/json";
+            print str(requestBody)
             hexDigest = md5(str(requestBody)
                         .replace(' ', '')
                         .replace('\'', '"')

@@ -32,7 +32,7 @@ class UpdateTarget:
         print content
 
     def setRequestBody(self):
-        self.requestBody["active_flag"] = True
+        self.requestBody["active_flag"] = 1
 
     def setHeaders(self, headers):
         sb = SignatureBuilder()
@@ -47,6 +47,7 @@ class UpdateTarget:
                                          self.path + self.targetId,
                                          self.secretKey)})
 
-g = UpdateTarget()
-g.updateTarget()
+if __name__ == "__main__":
+    g = UpdateTarget()
+    g.updateTarget()
 

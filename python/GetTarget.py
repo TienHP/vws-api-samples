@@ -37,6 +37,7 @@ class GetTarget:
                                          self.path + self.targetId,
                                          self.secretKey)})
 
-g = GetTarget()
-g.getTarget()
+if __name__ == "__main__":
+    g = GetTarget()
+    g.getTarget()
 

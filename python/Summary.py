@@ -2,8 +2,7 @@ import httplib2
 import time
 from SignatureBuilder import SignatureBuilder
 
-class GetTarget:
-
+class GetSummary:
     accessKey = "[ server access key ]";
     secretKey = "[ server secret key ]";
 
@@ -13,7 +12,7 @@ class GetTarget:
     path = "/summary"
     method = "GET"
 
-    def getTarget(self):
+    def getSummary(self):
         h = httplib2.Http('.cache')
         self.setHeaders(self.headers)
 
@@ -35,6 +34,7 @@ class GetTarget:
                                          self.path,
                                          self.secretKey)})
 
-g = GetTarget()
-g.getTarget()
+if __name__ == "__main__":
+    g = GetSummary()
+    g.getSummary()
 

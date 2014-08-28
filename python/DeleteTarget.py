@@ -68,7 +68,7 @@ class DeleteTarget(TargetStatusListener):
                                          self.secretKey)})
 
     def deactivateThenDeleteTarget(self):
-        self.updateTargetActivation(False)
+        self.updateTargetActivation(0)
         self.targetStatusPoller = TargetStatusPoller(self.pollingIntervalMinutes,
                                                 self.targetId,
                                                 self.accessKey,
@@ -90,6 +90,7 @@ class DeleteTarget(TargetStatusListener):
                     except Exception as e:
                         print "Error ontargetstatusupdate: " + str(e)
 
-g = DeleteTarget()
-g.deactivateThenDeleteTarget()
+if __name__ == "__main__":
+    g = DeleteTarget()
+    g.deactivateThenDeleteTarget()
 

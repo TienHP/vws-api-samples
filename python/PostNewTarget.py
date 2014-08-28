@@ -104,6 +104,7 @@ class PostNewTarget(TargetStatusListener):
                 except Exception as e:
                     print "Error ontargetstatusupdate: " + str(e)
 
-g = PostNewTarget()
-g.postTargetThenPollStatus()
+if __name__ == "__main__":
+    g = PostNewTarget()
+    g.postTargetThenPollStatus()
 
