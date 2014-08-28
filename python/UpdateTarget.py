@@ -32,7 +32,7 @@ class UpdateTarget:
         print content
 
     def setRequestBody(self):
-        self.requestBody["active_flag"] = 1
+        self.requestBody["active_flag"] = 0
 
     def setHeaders(self, headers):
         sb = SignatureBuilder()
